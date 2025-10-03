@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursividad en Programación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        section {
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 900px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Recursividad en Programación</h1>
+    <p>Conceptos, ejemplos y algoritmos clásicos</p>
+</header>
+
+<nav>
+    <a href="#definicion">Definición</a>
+    <a href="#procedimientos">Procedimientos Recursivos</a>
+    <a href="#caracteristicas">Características</a>
+    <a href="#complejidad">Complejidad</a>
+    <a href="#algoritmos">Ejemplos</a>
+    <a href="#fractales">Fractales</a>
+    <a href="#conclusion">Conclusión</a>
+    <a href="#referencias">Referencias</a>
+</nav>
+
+<section id="definicion">
+    <h2>Definición de Recursividad</h2>
+    <p>La <strong>recursividad</strong> es una técnica de programación en la que una función se llama a sí misma para resolver un problema dividiéndolo en subproblemas más pequeños. Esto permite solucionar problemas complejos de manera más sencilla y estructurada.</p>
+    <p>Se utiliza principalmente cuando un problema puede definirse en términos de versiones más simples de sí mismo, y requiere un <strong>caso base</strong> para detener la recursión.</p>
+    <img src="C:\Users\agustin\Downloads\recursividad.png" width="500" height="250" />
+</section>
+
+<section id="procedimientos">
+    <h2>Procedimientos Recursivos y Aplicaciones</h2>
+    <p>Un procedimiento recursivo es una función que se llama a sí misma durante su ejecución. Es útil para:</p>
+    <ul>
+        <li>Calcular <strong>factoriales</strong> de números.</li>
+        <li>Generar la <strong>secuencia de Fibonacci</strong>.</li>
+        <li>Resolver problemas como la <strong>Torre de Hanói</strong>.</li>
+        <li>Explorar <strong>árboles y grafos</strong> de manera eficiente.</li>
+        <li>Implementar algoritmos de <strong>búsqueda y ordenamiento</strong>.</li>
+    </ul>
+</section>
+
+<section id="caracteristicas">
+    <h2>Características de la Recursividad</h2>
+    <ul>
+        <li>Debe tener un <strong>caso base</strong> que termine la llamada recursiva.</li>
+        <li>Divide problemas complejos en subproblemas más manejables.</li>
+        <li>Puede consumir más memoria si no se maneja adecuadamente (por acumulación de llamadas en la pila).</li>
+        <li>Permite escribir código más limpio y legible en comparación con la iteración para ciertos problemas.</li>
+    </ul>
+</section>
+
+<section id="complejidad">
+    <h2>Complejidad Computacional en Algoritmos Recursivos</h2>
+    <p>La eficiencia de la recursividad depende de la estructura del problema:</p>
+    <ul>
+        <li><strong>Factorial:</strong> O(n), lineal respecto al tamaño del número.</li>
+        <li><strong>Fibonacci recursivo simple:</strong> O(2^n), exponencial y poco eficiente.</li>
+        <li><strong>Optimización con memoización:</strong> Reduce la complejidad de Fibonacci de exponencial a lineal.</li>
+        <li>Problemas como Torres de Hanói tienen complejidad O(2^n) debido al crecimiento exponencial del número de movimientos.</li>
+    </ul>
+    <img src="C:\Users\agustin\Downloads\complejidad.jpg" width="500" height="250">
+</section>
+
+<section id="algoritmos">
+    <h2>Ejemplos de Algoritmos Recursivos</h2>
+
+    <h3>Factorial</h3>
+    <pre>
+int factorial(int n) {
+    if(n == 0) return 1; // caso base
+    return n * factorial(n - 1);
+}
+    </pre>
+
+    <h3>Fibonacci</h3>
+    <pre>
+int fibonacci(int n) {
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    return fibonacci(n-1) + fibonacci(n-2);
+}
+
+    </pre>
+
+    <h3>Torre de Hanói</h3>
+    <pre>
+void hanoi(int n, char origen, char destino, char auxiliar) {
+    if(n == 1) {
+        System.out.println("Mover disco de " + origen + " a " + destino);
+        return;
+    }
+    hanoi(n-1, origen, auxiliar, destino);
+    System.out.println("Mover disco de " + origen + " a " + destino);
+    hanoi(n-1, auxiliar, destino, origen);
+}
+<img src= "C:\Users\agustin\Downloads\hanoi.png" alt="Imagen desde URL">
+    </pre>
+
+    <p><strong>Nota:</strong> Puedes imaginar la Torre de Hanói como tres columnas y varios discos de tamaños distintos. La recursión resuelve el problema moviendo discos entre columnas respetando las reglas.</p>
+</section>
+
+<section id="fractales">
+    <h2>Fractales y Recursividad</h2>
+    <p>Los fractales son figuras geométricas que se repiten a diferentes escalas. La recursividad es ideal para generarlos en programación, ya que la misma estructura se repite infinitamente con variaciones.</p>
+    
+    <h3>Ejemplo: Árbol Fractal</h3>
+    <pre>
+void dibujarArbol(Graphics g, int x1, int y1, double angulo, int profundidad) {
+    if(profundidad == 0) return; // caso base
+    int x2 = x1 + (int)(Math.cos(Math.toRadians(angulo)) * profundidad * 10.0);
+    int y2 = y1 - (int)(Math.sin(Math.toRadians(angulo)) * profundidad * 10.0);
+    g.drawLine(x1, y1, x2, y2);
+    dibujarArbol(g, x2, y2, angulo - 20, profundidad - 1);
+    dibujarArbol(g, x2, y2, angulo + 20, profundidad - 1);
+}
+<img src= "C:\Users\agustin\Downloads\Arbol-Fractal.png" alt="Imagen desde URL">
+    </pre>
+
+    <p><strong>Representación:</strong> Cada rama genera dos ramas nuevas, reduciendo su longitud y formando un árbol completo de manera recursiva.</p>
+</section>
+
+<section id="conclusion">
+    <h2>Conclusión</h2>
+    <p>La recursividad es una herramienta fundamental en ciencias computacionales, ya que permite:</p>
+    <ul>
+        <li>Dividir problemas complejos en soluciones más simples.</li>
+        <li>Generar estructuras como árboles, grafos y fractales de manera natural.</li>
+        <li>Optimizar soluciones mediante técnicas como memoización.</li>
+    </ul>
+    <p>Comprender y aplicar la recursividad es clave para resolver problemas avanzados en algoritmos y estructuras de datos.</p>
+</section>
+
+<section id="referencias">
+    <h2>Referencias IEEE</h2>
+    <ol>
+        <li>H. Cormen, C. Leiserson, R. Rivest y C. Stein, <em>Introduction to Algorithms</em>, 3rd ed., MIT Press, 2009.</li>
+        <li>D. E. Knuth, <em>The Art of Computer Programming, Volume 1: Fundamental Algorithms</em>, 3rd ed., Addison-Wesley, 1997.</li>
+        <li>R. Sedgewick y K. Wayne, <em>Algorithms</em>, 4th ed., Addison-Wesley, 2011.</li>
+        <li>Paul Dawkins, <em>Recursion in Programming</em>, Lamar University, 2020. [En línea]. Disponible en: https://tutorials.lamar.edu</li>
+        <li>K. H. Rosen, <em>Discrete Mathematics and Its Applications</em>, 7th ed., McGraw-Hill, 2012.</li>
+        <li>Wikipedia contributors, “Recursion (computer science),” Wikipedia, 2025. [En línea]. Disponible en: https://en.wikipedia.org/wiki/Recursion_(computer_science)</li>
+    </ol>
+</section>
+
+<footer>
+    <p>© 2025 RecursividadWeb | Fuentes: Artículos, libros académicos y tutoriales educativos</p>
+</footer>
+
+</body>
+</html>
